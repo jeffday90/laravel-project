@@ -6,7 +6,10 @@
   <body>
     <h1>here we go!!!</h1>
     <p>
-        <a href="/contact">Contact</a> us to learn more
+        <ul>
+          <li><a href="/contact">Contact us</a> to learn more
+          <li><a href="/about">About us</a>
+        </ul>
     </p>
   </body>
 </html>
