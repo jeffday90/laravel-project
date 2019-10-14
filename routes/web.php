@@ -13,12 +13,5 @@
 
 // sends a get route to PagesController
 Route::get('/', 'PagesController@home');
-
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/contact', 'PagesController@about');
+Route::get('/about', 'PagesController@contact');
