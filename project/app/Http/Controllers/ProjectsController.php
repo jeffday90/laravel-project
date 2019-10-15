@@ -32,31 +32,34 @@ class ProjectsController extends Controller
     public function store() 
     {
         // creates a new project
-        $project = new Project();
-        $project->title = request('title');
-        $project->description = request('description');
-        $project->save();
+        Project::create([
+            'title' => request('title'),
+            'description' => request('description')
+        ]);
+
+
+        // $project = new Project();
+        // $project->title = = request('title');
+        // $project->description = request('description');
+        // $project->save();
 
         return redirect('/projects');
 
     }
 
-    public function show () 
+    public function show (Project $project) 
     {
-
+        return view('projects.show', compact('project'));
     }
 
-    public function edit($id) // example.com/projects/project/edit
+    public function edit(Project $project) // example.com/projects/project/edit
     {
         // compact passes variables to view
-        $project = Project::findOrFail($id);
         return view('projects.edit', compact('project'));
     }
 
-    public function update($id) 
+    public function update(Project $project) 
     {
-        $project = Project::findOrFail($id);
-
         $project->title = request('title');
         $project->description = request('description');
 
@@ -65,10 +68,9 @@ class ProjectsController extends Controller
         return redirect('/projects');
     }
 
-    public function destroy($id) 
+    public function destroy(Project $project) 
     {   
-        $project = Project::findOrFail($id)->delete();
-
+        $project->delete();
         return redirect('/projects');
     }
 }
