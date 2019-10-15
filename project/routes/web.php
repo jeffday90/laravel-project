@@ -15,4 +15,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/projects', 'ProjectsController@index');
+
+/* 
+    PLAN OUT THE APP - 7 different ways to work with PROJECTS
+
+    GET - projects (index)
+    GET - projects (create) (create a project)
+    GET - projects/id (show) (show a specific project)
+    POST - projects (store) (add a new project)
+    PUT - projects/id (update) (update or change a project with a specific ID)
+    DELETE - projects/id (delete) (delete a project with a specific ID)
+
+*/
+
+// //GET 
+// Route::get('/projects', 'ProjectsController@index');
+// Route::get('/projects/create', 'ProjectsController@create');
+// Route::get('/projects/{project}', '@ProjectsController@show');
+// // this one below is calls up a specific project to view (and then be edited)
+// Route::get('/projects/{project}/edit', '@ProjectsController@edit');
+
+// //POST
+// Route::post('/projects', 'ProjectsController@store');
+
+// //PUT
+// Route::put('/projects/{project}, @ProjectsController@update');
+
+// //DELETE
+// Route::delete('/projects/{project}', '@ProjectsController@delete');
+
+Route::resource('projects', 'ProjectsController');

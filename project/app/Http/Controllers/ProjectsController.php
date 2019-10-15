@@ -18,8 +18,44 @@ class ProjectsController extends Controller
         $projects = Project::all();
 
         // interpets and returns JSON automatically
-        //return $projects;
+        // return $projects;
         
         return view('projects.index', compact('projects'));
+    }
+
+    public function create() 
+    {
+        return view('projects.create');
+    }
+
+    public function store() 
+    {
+        $project = new Project();
+        $project->title = request('title');
+        $project->description = request('description');
+        $project->save();
+
+        return redirect('/projects');
+
+    }
+
+    public function show () 
+    {
+
+    }
+
+    public function edit() // example.com/projects/project/edit
+    {
+        return view('projects.edit')
+    }
+
+    public function update() 
+    {
+
+    }
+
+    public function delete() 
+    {
+
     }
 }
