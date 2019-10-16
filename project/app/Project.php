@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    // identifies what values can be manipulated
+    // identifies what fields can be filled in for this model
     protected $fillable = [
         'title', 'description'
     ];
