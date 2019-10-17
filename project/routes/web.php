@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('projects', 'ProjectsController');
+
+Route::patch('/tasks/{task}', 'TaskController@update');
+
 
 /* 
     PLAN OUT THE APP - 7 different ways to work with PROJECTS
@@ -45,4 +49,3 @@ Route::get('/', function () {
 // Route::delete('/projects/{project}', '@ProjectsController@delete');
 
 // takes care of all of the necessary routes
-Route::resource('projects', 'ProjectsController');

@@ -14,4 +14,10 @@ class Project extends Model
     // guarded does the opposite, specifies what CANT be changed
 
     // security procedure
+
+    public function tasks() 
+    {
+        // return the tasks associated with said project
+        return $this->hasMany(Task::class);
+    }
 }

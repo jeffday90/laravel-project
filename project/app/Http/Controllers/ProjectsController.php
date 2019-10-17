@@ -35,27 +35,20 @@ class ProjectsController extends Controller
     public function store() 
     {
 
-        // need validation to ensure that project entered will 
+        // need validation to ensure that project entered will be proper
+            //validate method
+            // if validation fails redirects to the page and populates an errors object
+                // you can include an array with different validation parameters, 
+                // in this example there is a required and a min
 
-
-        //validate method
-
-        // if validation fails redirects to the page and populates an errors variable
-        request()->validate([
-            'title' => 'required',
+        // creates a new project (with validation) with attributes instance 
+            // that is the input from project page 
+        Project::create($attributes = request()->validate([
+            'title' => ['required', 'min:3'],
             'description' => 'required'
-        ]);
+        ]));
 
-
-        // creates a new project
-        Project::create(request(['title', 'description']));
-
-
-        // $project = new Project();
-        // $project->title = = request('title');
-        // $project->description = request('description');
-        // $project->save();
-
+        // returns to projects page
         return redirect('/projects');
 
     }

@@ -18,7 +18,7 @@
         </div>
 
         <div>
-            <textarea name="description" placeholder="Description of Project"></textarea>
+            <textarea name="description" value="{{ old('description')}}"></textarea>
         </div>
 
         <div>
