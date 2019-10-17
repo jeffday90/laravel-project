@@ -14,27 +14,20 @@
         {{-- laravel requires a token/auth out of the box, so we include this csrf field method --}}
         {{ csrf_field() }}
         <div>
-            <input type="text" name="title" value="{{ old('title')}}">
+            <input type="text" name="title" value="{{ old('title')}}" required>
         </div>
 
         <div>
-            <textarea name="description" value="{{ old('description')}}"></textarea>
+            <textarea name="description" value="{{ old('description')}}" required></textarea>
         </div>
 
         <div>
             <button type="submit">Create Project</button>
         </div>
 
-
-        <div class="notification is-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>
-                        {{ $error }}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
     </form>
+
+    @include('errors')
+    
 </body>
 </html>

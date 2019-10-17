@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::resource('projects', 'ProjectsController');
 
 Route::patch('/tasks/{task}', 'TaskController@update');
+Route::post('/projects/{project}/tasks', 'TaskController@store');
 
 
 /* 
