@@ -44,4 +44,5 @@ Route::get('/', function () {
 // //DELETE
 // Route::delete('/projects/{project}', '@ProjectsController@delete');
 
+// takes care of all of the necessary routes
 Route::resource('projects', 'ProjectsController');

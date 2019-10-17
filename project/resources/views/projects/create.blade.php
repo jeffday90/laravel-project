@@ -14,7 +14,7 @@
         {{-- laravel requires a token/auth out of the box, so we include this csrf field method --}}
         {{ csrf_field() }}
         <div>
-            <input type="text" name="title" placeholder="Project Title">
+            <input type="text" name="title" value="{{ old('title')}}">
         </div>
 
         <div>
@@ -26,6 +26,15 @@
         </div>
 
 
+        <div class="notification is-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     </form>
 </body>
 </html>

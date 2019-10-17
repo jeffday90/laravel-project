@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 // use this to shorten the naming convention so you can just use Project
 use App\Project;
 
+// ROUTE MODEL BINDING looks like: Project $project
+
+
 class ProjectsController extends Controller
 {
     public function index() 
@@ -31,6 +34,19 @@ class ProjectsController extends Controller
 
     public function store() 
     {
+
+        // need validation to ensure that project entered will 
+
+
+        //validate method
+
+        // if validation fails redirects to the page and populates an errors variable
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+
         // creates a new project
         Project::create(request(['title', 'description']));
 
