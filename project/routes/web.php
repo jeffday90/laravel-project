@@ -19,7 +19,8 @@ Route::resource('projects', 'ProjectsController');
 
 Route::patch('/tasks/{task}', 'TaskController@update');
 Route::post('/projects/{project}/tasks', 'TaskController@store');
-
+Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
+Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
 
 /* 
     PLAN OUT THE APP - 7 different ways to work with PROJECTS

@@ -10,11 +10,19 @@ class TaskController extends Controller
 {
     public function update (Task $task)
     {
-       $task->update([
-        'completed' => request()->has('completed')
-       ]);
+        $method = request()->has('completed') ? 'complete' : 'incomplete';
 
-       return back();
+
+        // hides class logic
+        $task->$method();
+
+
+        // exposes internal logic
+        // $task->update([
+        //     'completed' => request()->has('completed')
+        // ]);
+        
+        return back();
     }
 
     public function store (Project $project)
