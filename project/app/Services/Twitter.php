@@ -6,7 +6,7 @@ class Twitter
 {
     protected $apiKey;
 
-    public function __construct($apiKey)
+    public function __construct($apiKey)   
     {
         $this->apiKey = $apiKey;
     }
