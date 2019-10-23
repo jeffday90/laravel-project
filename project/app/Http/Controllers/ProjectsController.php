@@ -55,6 +55,10 @@ class ProjectsController extends Controller
 
     public function show (Project $project) 
     {
+        $twitter = app('twitter');
+
+        dd($twitter);
+        
         return view('projects.show', compact('project'));
     }
 

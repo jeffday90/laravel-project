@@ -9,8 +9,8 @@ use Illuminate\Filesystem\Filesystem;
     // class dependencies are "injected" into the class via the constructor or, 
     // in some cases, "setter" methods.
 
-app()->singleton('example', function () {
-    return new \App\Example;
+app()->singleton('twitter', function () {
+    return new \App\Services\Twitter('adfdwresagvds');
 });
 
 // bind method creates new instances and throws them into service container
