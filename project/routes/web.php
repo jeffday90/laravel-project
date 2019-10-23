@@ -1,17 +1,24 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Filesystem\Filesystem;
+
+// app and resolve are methods that return service container instances
+    // The Laravel service container is a powerful tool for managing 
+    // class dependencies and performing dependency injection. Dependency 
+    // injection is a fancy phrase that essentially means this: 
+    // class dependencies are "injected" into the class via the constructor or, 
+    // in some cases, "setter" methods.
+
+app()->singleton('example', function () {
+    return new \App\Example;
+});
+
+// bind method creates new instances and throws them into service container
+    // singleton binds one instance
 
 Route::get('/', function () {
+    dd(app('example'), app('example'));
+    
     return view('welcome');
 });
 
